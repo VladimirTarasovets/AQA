@@ -38,6 +38,7 @@ public class Task14 {
         actions.moveToElement(driver.findElement(By.tagName("body")), 0, 0); // сбрасываем курсор в верхний левый угол представления веб-браузера
         actions.moveByOffset(655, 406).click().build().perform(); // кликаем по координатам x, y, указанным вручную в качестве параметра
 
+/*
         // Ищем координаты и размер веб-элемента
         WebElement e = driver.findElement(By.id("address_color")); // какой будет веб-элемент для поиска
 
@@ -49,18 +50,20 @@ public class Task14 {
 //        webElement.getLocation().getX();
 //        webElement.getLocation().getY();
 
+*/
+
+
+//        driver.findElement(By.id("address_color")).sendKeys("#00FF08"); // не работает
+//
+//        JavascriptExecutor js = (JavascriptExecutor)driver; // пока не понял как дальше, и возможно ли так сделать
+//        public void setAttribute (WebElement element, String attName, String attValue) {
+//            js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attName, attValue);
+//        }
+
+
         driver.findElement(By.id("address_age")).sendKeys("28"); // заполняем возвраст
         driver.findElement(By.id("address_website")).sendKeys("https://www.google.com/"); // заполняем вебсайт
-
-        // Загрузка файла
-        driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\Lenovo\\Pictures\\Скриншот.png"); // выбираем файл
-
-        /* Не обращать внимание на этот код------
-        WebElement element = driver.findElement(By.xpath("//input[@type='file']"));
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", element);
-        */
-
+        driver.findElement(By.id("address_picture")).sendKeys("C:\\Users\\Lenovo\\Pictures\\Скриншот.png"); // выбираем файл
         driver.findElement(By.id("address_phone")).sendKeys("2020327"); // заполняем телефон
         driver.findElement(By.id("address_interest_read")).click(); // выбираем интересы
         driver.findElement(By.id("address_note")).sendKeys("Примечание"); // заполняем примечания
@@ -96,7 +99,7 @@ public class Task14 {
 
         driver.close();
         driver.quit();
-
+        
     }
 
 }
