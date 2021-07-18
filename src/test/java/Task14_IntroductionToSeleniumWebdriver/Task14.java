@@ -1,14 +1,17 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+package Task14_IntroductionToSeleniumWebdriver;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 
 import java.time.Duration;
 
-public class Test {
+public class Task14 {
 
     public static void main(String[] args) {
         System.setProperty("webdriver.opera.driver", "C:\\Users\\Lenovo\\IdeaProjects\\operadriver.exe");
         WebDriver driver = new OperaDriver();
+        Actions actions = new Actions(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // 1. Логин
@@ -28,11 +31,36 @@ public class Test {
         driver.findElement(By.xpath("//option[@value='HI']")).click(); // выбираем Гавайи
         driver.findElement(By.id("address_zip_code")).sendKeys("9379992"); // заполняем зип код
         driver.findElement(By.id("address_country_us")).click(); //выбираем страну
-        // Заполнение дня рождения (Календарь)
-        // Выбор цвета
+        driver.findElement(By.id("address_birthday")).sendKeys("19021993"); // Заполнение дня рождения (Календарь)
+
+        // Выбор цвета (Не работает по координатам, или координаты не так указал)
+        driver.findElement(By.id("address_color")).click(); // кликаем по элементу Color
+        actions.moveToElement(driver.findElement(By.tagName("body")), 0, 0); // сбрасываем курсор в верхний левый угол представления веб-браузера
+        actions.moveByOffset(655, 406).click().build().perform(); // кликаем по координатам x, y, указанным вручную в качестве параметра
+
+        // Ищем координаты и размер веб-элемента
+        WebElement e = driver.findElement(By.id("address_color")); // какой будет веб-элемент для поиска
+
+        Point location = e.getLocation(); // координаты запрашиваемого веб-элемента x и y
+        Dimension size = e.getSize(); // размер запрашиваемого веб-элемента
+
+        System.out.println(location); // вывод на экран координат запрашиваемого веб-элемента
+        System.out.println(size); // вывод на экран размера запрашиваемого веб-элемента
+//        webElement.getLocation().getX();
+//        webElement.getLocation().getY();
+
         driver.findElement(By.id("address_age")).sendKeys("28"); // заполняем возвраст
         driver.findElement(By.id("address_website")).sendKeys("https://www.google.com/"); // заполняем вебсайт
+
         // Загрузка файла
+        driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\Lenovo\\Pictures\\Скриншот.png"); // выбираем файл
+
+        /* Не обращать внимание на этот код------
+        WebElement element = driver.findElement(By.xpath("//input[@type='file']"));
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", element);
+        */
+
         driver.findElement(By.id("address_phone")).sendKeys("2020327"); // заполняем телефон
         driver.findElement(By.id("address_interest_read")).click(); // выбираем интересы
         driver.findElement(By.id("address_note")).sendKeys("Примечание"); // заполняем примечания
@@ -69,8 +97,6 @@ public class Test {
         driver.close();
         driver.quit();
 
-
     }
 
 }
-
