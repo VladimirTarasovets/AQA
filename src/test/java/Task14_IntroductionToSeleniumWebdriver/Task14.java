@@ -1,18 +1,18 @@
 package Task14_IntroductionToSeleniumWebdriver;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.opera.OperaDriver;
 
 import java.time.Duration;
 
 public class Task14 {
 
     public static void main(String[] args) {
-        System.setProperty("webdriver.opera.driver", "C:\\Users\\Lenovo\\IdeaProjects\\operadriver.exe");
-        WebDriver driver = new OperaDriver();
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Lenovo\\IdeaProjects\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
         Actions actions = new Actions(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         // 1. Логин
         driver.get("http://a.testaddressbook.com/sign_in"); // открываем страницу
@@ -32,12 +32,16 @@ public class Task14 {
         driver.findElement(By.id("address_zip_code")).sendKeys("9379992"); // заполняем зип код
         driver.findElement(By.id("address_country_us")).click(); //выбираем страну
         driver.findElement(By.id("address_birthday")).sendKeys("19021993"); // Заполнение дня рождения (Календарь)
+        // выбираем цвет
+        driver.findElement(By.id("address_color")).sendKeys("#00FF08"); // через оперу не работает, хром меняется
 
+/*
         // Выбор цвета (Не работает по координатам, или координаты не так указал)
         driver.findElement(By.id("address_color")).click(); // кликаем по элементу Color
         actions.moveToElement(driver.findElement(By.tagName("body")), 0, 0); // сбрасываем курсор в верхний левый угол представления веб-браузера
         actions.moveByOffset(655, 406).click().build().perform(); // кликаем по координатам x, y, указанным вручную в качестве параметра
 
+ */
 /*
         // Ищем координаты и размер веб-элемента
         WebElement e = driver.findElement(By.id("address_color")); // какой будет веб-элемент для поиска
@@ -51,15 +55,14 @@ public class Task14 {
 //        webElement.getLocation().getY();
 
 */
+/*
+        JavascriptExecutor js = (JavascriptExecutor)driver; // пока не понял как дальше, и возможно ли так сделать
 
+        public void setAttribute (WebElement element, String attName, String attValue) {
+            driver.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attName, attValue);
+        }
 
-//        driver.findElement(By.id("address_color")).sendKeys("#00FF08"); // не работает
-//
-//        JavascriptExecutor js = (JavascriptExecutor)driver; // пока не понял как дальше, и возможно ли так сделать
-//        public void setAttribute (WebElement element, String attName, String attValue) {
-//            js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attName, attValue);
-//        }
-
+ */
 
         driver.findElement(By.id("address_age")).sendKeys("28"); // заполняем возвраст
         driver.findElement(By.id("address_website")).sendKeys("https://www.google.com/"); // заполняем вебсайт
@@ -100,6 +103,7 @@ public class Task14 {
         driver.close();
         driver.quit();
         
+
     }
 
 }
