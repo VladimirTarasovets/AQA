@@ -140,8 +140,8 @@ public class Tests extends BeAfAll{
         driver.switchTo().alert().accept();
 
         Log.info("Проверяем, что открылась корректная страница");
-        String currentURL4 = driver.getCurrentUrl();
-        Assertions.assertEquals("http://a.testaddressbook.com/addresses", currentURL4,
+        String currentURL3 = driver.getCurrentUrl();
+        Assertions.assertEquals("http://a.testaddressbook.com/addresses", currentURL3,
                 "Открыта не правильная страница или адресс страницы неверный");
     }
 
