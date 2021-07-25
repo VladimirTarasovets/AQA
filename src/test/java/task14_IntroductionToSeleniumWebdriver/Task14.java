@@ -2,7 +2,6 @@ package task14_IntroductionToSeleniumWebdriver;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 
@@ -11,7 +10,6 @@ public class Task14 {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Lenovo\\IdeaProjects\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        Actions actions = new Actions(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -28,7 +26,7 @@ public class Task14 {
         driver.findElement(By.id("address_last_name")).sendKeys("Last name"); // заполняем Last name
         driver.findElement(By.name("address[address1]")).sendKeys("Address1"); // заполняем Address1
         driver.findElement(By.name("address[address2]")).sendKeys("Address2"); // заполняем Address2
-        driver.findElement(By.id("address_city")).sendKeys("Minsk"); // заполняем First name
+        driver.findElement(By.id("address_city")).sendKeys("Minsk"); // заполняем город
         driver.findElement(By.xpath("//option[@value='HI']")).click(); // выбираем Гавайи
         driver.findElement(By.id("address_zip_code")).sendKeys("9379992"); // заполняем зип код
         driver.findElement(By.id("address_country_us")).click(); //выбираем страну
