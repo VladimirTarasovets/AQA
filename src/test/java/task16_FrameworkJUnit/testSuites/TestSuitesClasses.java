@@ -1,15 +1,15 @@
 package task16_FrameworkJUnit.testSuites;
 
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectClasses;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 import task16_FrameworkJUnit.tests.LogIn;
 import task16_FrameworkJUnit.tests.Tests;
 
-
-@RunWith(Suite.class)
-@Suite.SuiteClasses({LogIn.class, Tests.class})
+@RunWith(JUnitPlatform.class)
+@SelectClasses({LogIn.class, Tests.class})
 public class TestSuitesClasses {
 
-    // не работает :(
+    // заработало :)
 
 }

@@ -45,6 +45,13 @@
         <scope>test</scope>
     </dependency>
 
+    <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-runner</artifactId>
+        <version>1.7.0</version>
+        <scope>test</scope>
+    </dependency>
+
     <!--logger-->
     <dependency>
         <groupId>log4j</groupId>
@@ -52,18 +59,18 @@
         <version>1.2.17</version>
     </dependency>
 
-    <!--webdrivermanager-->
-    <dependency>
-        <groupId>io.github.bonigarcia</groupId>
-        <artifactId>webdrivermanager</artifactId>
-        <version>4.4.3</version>
-    </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
+<!--    &lt;!&ndash;webdrivermanager&ndash;&gt;-->
+<!--    <dependency>-->
+<!--        <groupId>io.github.bonigarcia</groupId>-->
+<!--        <artifactId>webdrivermanager</artifactId>-->
+<!--        <version>4.4.3</version>-->
+<!--    </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>4.13.2</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
     </dependencies>
 
