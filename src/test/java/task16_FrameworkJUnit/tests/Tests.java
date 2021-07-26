@@ -8,10 +8,10 @@ import static task16_FrameworkJUnit.locators.Locators.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class Tests extends BeAfAll{
+public class Tests extends LogIn{
 
     @Test
-    @Order(1)
+    @Order(2)
     @DisplayName("Тест на добавление адреса")
     public void testAddAdress() {
 
@@ -58,7 +58,7 @@ public class Tests extends BeAfAll{
         driver.findElement(By.id("address_website")).sendKeys("https://www.google.com/");
 
         Log.info("Выбираем файл для загрузки");
-        driver.findElement(By.id("address_picture")).sendKeys("C:\\Users\\Lenovo\\Pictures\\Скриншот.png");
+        driver.findElement(By.id("address_picture")).sendKeys(PICTURE);
 
         Log.info("Заполняем номер телефона");
         driver.findElement(By.id("address_phone")).sendKeys("2020327");
@@ -82,7 +82,7 @@ public class Tests extends BeAfAll{
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     @DisplayName("Тест на редактирование адреса")
     public void testEditAdress() {
 
@@ -129,7 +129,7 @@ public class Tests extends BeAfAll{
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     @DisplayName("Тест на удаление адреса")
     public void testDelitAdress() {
 
