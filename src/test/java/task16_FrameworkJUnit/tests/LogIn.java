@@ -10,7 +10,7 @@ public class LogIn extends BeAfAll{
 
     @Test
     @Order(1)
-    @DisplayName("Тест на добавление адреса")
+    @DisplayName("Тест на вход пользователя")
     public void logIn() {
 
         Log.info("Вводим e-mail");
