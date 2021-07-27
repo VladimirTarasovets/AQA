@@ -10,8 +10,8 @@ public class BeAfAll {
     protected WebDriver driver = Driver.getChromeDriver();
 
     @BeforeAll
-    @DisplayName("Авторизация на сайте")
-    public void start() {
+    @DisplayName("Открытие сайта")
+    public void setUp() {
 
         Log.info("Открываем страницу a.testaddressbook.com/sign_in");
         driver.get("http://a.testaddressbook.com/sign_in/");
