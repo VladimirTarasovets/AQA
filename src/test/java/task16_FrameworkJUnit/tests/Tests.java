@@ -8,7 +8,7 @@ import static task16_FrameworkJUnit.locators.Locators.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class Tests extends LogIn{
+public class Tests extends TestLogIn {
 
     @Test
     @Order(2)

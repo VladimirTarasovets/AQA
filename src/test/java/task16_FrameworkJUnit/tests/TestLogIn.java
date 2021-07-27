@@ -6,7 +6,7 @@ import utils.Log;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class LogIn extends BeAfAll{
+public class TestLogIn extends BeAfAll{
 
     @Test
     @Order(1)
